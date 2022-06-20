@@ -8,12 +8,12 @@ namespace BubbleSortTest
         }
 
         [Test]
-        [TestCase(new object[] {1, 2, 3, 6, 4, 99, 12, 97}, new object[] { 1, 2, 3, 4, 6, 12, 97, 99 })]
-        [TestCase(new object[] { 'a', 'c', 'b'}, new object[] { 'a', 'b', 'c'})]
+        [TestCase(new int[] {1, 2, 3, 6, 4, 99, 12, 97}, new int[] { 1, 2, 3, 4, 6, 12, 97, 99 })]
+        [TestCase(new char[] { 'a', 'c', 'b'}, new char[] { 'a', 'b', 'c'})]
         public void BubbleSortTest(Array input, Array expectredResult)
         {
             var sorter = new BubbleSorter();
-            sorter.Sort(input, new IncreaseCompare());
+            sorter.Sort(input, new IncreaseComparer());
             Assert.AreEqual(expectredResult, input);
         }
     }

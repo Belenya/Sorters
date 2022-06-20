@@ -14,7 +14,7 @@ namespace BubbleSort
                 Console.WriteLine(item);
             }
             Console.WriteLine(1.CompareTo(2));
-            bubbleSort.Sort(array, new IncreaseCompare());
+            bubbleSort.Sort(array, new IncreaseComparer());
 
             foreach (var item in array)
             {

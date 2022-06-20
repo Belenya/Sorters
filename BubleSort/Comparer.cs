@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BubbleSort
 {
-    public class IncreaseCompare : IComparer
+    public class IncreaseComparer : IComparer
     {
         public int Compare(object x, object y)
         {
