@@ -14,4 +14,12 @@ namespace BubbleSort
             return ((IComparable)x).CompareTo((IComparable)y);
         }
     }
+
+    public class DecreaseComparer : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            return ((IComparable)(y)).CompareTo((IComparable)x);
+        }
+    }
 }
