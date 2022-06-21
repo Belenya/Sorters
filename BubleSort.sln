@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubleSort", "BubleSort\BubleSort.csproj", "{B1E6A62C-A191-44D6-A92F-FC32D4DCF9EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorting Alghoritms", "BubleSort\Sorting Alghoritms.csproj", "{B1E6A62C-A191-44D6-A92F-FC32D4DCF9EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSortTest", "BubbleSortTest\BubbleSortTest.csproj", "{F8F0356B-6755-431A-A773-AA56DB3039D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SorterTests", "BubbleSortTest\SorterTests.csproj", "{F8F0356B-6755-431A-A773-AA56DB3039D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

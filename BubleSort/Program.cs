@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BubbleSort
+namespace SortingAlghoritms
 {
     public class Program
     {
