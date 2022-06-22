@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortingAlghoritms
+namespace SortingAlgoritms
 {
-    public class MergeSorter
+    public class MergeSorter : ISorter
     {
         static Array tempArray;
         static Type arrayType;
@@ -19,10 +19,10 @@ namespace SortingAlghoritms
             Sort(array, 0, array.Length - 1, comparer);
         }
 
-        void Sort(Array array, int start, int end, IComparer comparer)
+        public void Sort(Array array, int start, int end, IComparer comparer)
         {
             if (start == end) return;
-            var middle = (start + end) / 2;
+            int middle = (start + end) / 2;
             Sort(array, start, middle, comparer);
             Sort(array, middle + 1, end, comparer);
             Merge(array, start, middle, end, comparer);
@@ -31,50 +31,19 @@ namespace SortingAlghoritms
         public void Merge(Array array, int start, int middle, int end, IComparer comparer)
         {
             var leftArrayElPos = start;
-            var rightArrayElPos = middle;
+            var rightArrayElPos = middle + 1;
             var subArrayLength = end - start + 1;
-            Type type = array.GetType().GetElementType();
-            var tempArray = Array.CreateInstance(type, subArrayLength);
 
             for (var i = 0; i < subArrayLength; i++)
             {
-                var rightArrayEl = array.GetValue(rightArrayElPos);
-                var leftArrayEl = array.GetValue(leftArrayElPos);
-                if ((comparer.Compare(rightArrayEl, leftArrayEl) > 0 && leftArrayElPos < middle) || rightArrayElPos > end)
+                if (rightArrayElPos > end || (comparer.Compare(array.GetValue(rightArrayElPos), array.GetValue(leftArrayElPos)) > 0 && leftArrayElPos <= middle))
                 {
-                    tempArray.SetValue(leftArrayEl, i);
+                    tempArray.SetValue(array.GetValue(leftArrayElPos), i);
                     leftArrayElPos++;
                 }
                 else
                 {
-                    tempArray.SetValue(rightArrayEl, i);
-                    rightArrayElPos++;
-                }
-            }
-            for (int i = 0; i < subArrayLength; i++)
-                array.SetValue(tempArray.GetValue(i), i + start);
-        }
-
-        public void MergeForTest(Array array, int start, int middle, int end, IComparer comparer)
-        {
-            var leftArrayElPos = start;
-            var rightArrayElPos = middle;
-            var subArrayLength = end - start + 1;
-            Type type = array.GetType().GetElementType();
-            var tempArray = Array.CreateInstance(type, subArrayLength);
-
-            for (var i = 0; i < subArrayLength; i++)
-            {
-                var rightArrayEl = array.GetValue(rightArrayElPos);
-                var leftArrayEl = array.GetValue(leftArrayElPos);
-                if ((comparer.Compare(rightArrayEl, leftArrayEl) > 0 && leftArrayElPos < middle) || rightArrayElPos > end)
-                {
-                    tempArray.SetValue(leftArrayEl, i);
-                    leftArrayElPos++;
-                }
-                else
-                {
-                    tempArray.SetValue(rightArrayEl, i);
+                    tempArray.SetValue(array.GetValue(rightArrayElPos), i);
                     rightArrayElPos++;
                 }
             }

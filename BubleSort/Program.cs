@@ -1,26 +1,20 @@
 ﻿using System;
 
-namespace SortingAlghoritms
+namespace SortingAlgoritms
 {
     public class Program
     {
         public static void Main()
         {
-            var array = new object[] {4, 3, 2, 1};
-            var bubbleSort = new BubbleSorter();
+            var array = new int[] {1, 2, 3 ,4 };
+            var sorter = new MergeSorter();
 
             foreach (var item in array)
             {
                 Console.WriteLine(item);
             }
 
-            bubbleSort.Sort(array, new IncreaseComparer());
-            foreach (var item in array)
-            {
-                Console.WriteLine(item);
-            }
-
-            bubbleSort.Sort(array, new DecreaseComparer());
+            sorter.Sort(array, new DecreaseComparer());
             foreach (var item in array)
             {
                 Console.WriteLine(item);
