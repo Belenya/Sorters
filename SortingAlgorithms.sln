@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgoritms", "BubleSort\SortingAlgoritms.csproj", "{B1E6A62C-A191-44D6-A92F-FC32D4DCF9EC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SorterTests", "BubbleSortTest\SorterTests.csproj", "{F8F0356B-6755-431A-A773-AA56DB3039D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgoritmsTests", "BubbleSortTest\SortingAlgoritmsTests.csproj", "{F8F0356B-6755-431A-A773-AA56DB3039D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

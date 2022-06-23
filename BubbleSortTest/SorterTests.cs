@@ -40,7 +40,7 @@ namespace SortersTests
 
         [Test]
         [TestCase(new int[] { 1 }, new int[] { 1 })]
-        [TestCase(new int[] { 9, 1 }, new int[] {9, 1})]
+        [TestCase(new int[] { 1, 9 }, new int[] { 9, 1 })]
         [TestCase(new int[] { 6, 4, 5 }, new int[] {6, 5, 4})]
         [TestCase(new int[] { 9, 10, 5, 6 }, new int[] { 10, 9, 6, 5})]
         [TestCase(new int[] { 1, 4, 2, 3, 5 }, new int[] { 5, 4, 3, 2, 1})]
@@ -48,6 +48,34 @@ namespace SortersTests
         public void MergeSortDecreace(Array inputArray, Array expectredResult)
         {
             var sorter = new MergeSorter();
+            sorter.Sort(inputArray, new DecreaseComparer());
+            Assert.That(inputArray, Is.EqualTo(expectredResult));
+        }
+
+        [Test]
+        [TestCase(new int[] { 1 }, new int[] { 1 })]
+        [TestCase(new int[] { 9, 1 }, new int[] { 1, 9 })]
+        [TestCase(new int[] { 6, 4, 5 }, new int[] { 4, 5, 6 })]
+        [TestCase(new int[] { 9, 10, 5, 6 }, new int[] { 5, 6, 9, 10 })]
+        [TestCase(new int[] { 1, 4, 2, 3, 5 }, new int[] { 1, 2, 3, 4, 5 })]
+        [TestCase(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 }, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })]
+        public void QuickSortIncrease(Array inputArray, Array expectredResult)
+        {
+            var sorter = new QuickSorter();
+            sorter.Sort(inputArray, new IncreaseComparer());
+            Assert.That(inputArray, Is.EqualTo(expectredResult));
+        }
+
+        [Test]
+        [TestCase(new int[] { 1 }, new int[] { 1 })]
+        [TestCase(new int[] { 1, 9 }, new int[] { 9, 1 })]
+        [TestCase(new int[] { 6, 4, 5 }, new int[] { 6, 5, 4 })]
+        [TestCase(new int[] { 9, 10, 5, 6 }, new int[] { 10, 9, 6, 5 })]
+        [TestCase(new int[] { 1, 4, 2, 3, 5 }, new int[] { 5, 4, 3, 2, 1 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 })]
+        public void QuickSortDecreace(Array inputArray, Array expectredResult)
+        {
+            var sorter = new QuickSorter();
             sorter.Sort(inputArray, new DecreaseComparer());
             Assert.That(inputArray, Is.EqualTo(expectredResult));
         }
